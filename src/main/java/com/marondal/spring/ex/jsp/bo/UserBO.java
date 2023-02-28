@@ -18,6 +18,10 @@ public class UserBO {
 		return userDAO.insertUser(name, birthday, email, introduce);
 	}
 	
+	public int addUserByObject(User user) {
+		return userDAO.insertUserByObject(user);
+	}
+	
 	public User getLastUser() {
 		return userDAO.selectLastUser();
 	}
