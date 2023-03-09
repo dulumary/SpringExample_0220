@@ -71,6 +71,33 @@
 			1
 	
 	</select>
+	
+	<select id="selectUserList" resultType="com.marondal.spring.ex.jsp.model.User">
+		SELECT
+			`id`
+			, `name`
+			, `yyyymmdd`
+			, `email`
+			, `introduce`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`new_user`
+	
+	</select>
+	
+	
+	<select id="selectCountEmail" parameterType="string" resultType="int">
+		SELECT 
+			count(1)
+		FROM
+			`new_user`
+		WHERE 
+			`email` = #{email}
+	
+	
+	</select>
+	
 
 
 </mapper>

@@ -1,5 +1,7 @@
 package com.marondal.spring.ex.jsp.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +27,25 @@ public class UserBO {
 	public User getLastUser() {
 		return userDAO.selectLastUser();
 	}
+	
+	public List<User> getUserList() {
+		return userDAO.selectUserList();
+	}
+	
+	public boolean isDuplicateEmail(String email) {
+		int count = userDAO.selectCountEmail(email);
+		
+		if(count == 0) {
+			// 중복되지 않았다
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	
+	
+	
+	
 
 }
